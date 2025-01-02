@@ -79,12 +79,12 @@ module.exports = ({ env }) => ({
   connection: {
     client: "postgres",
     connection: {
-      host: env("DATABASE_HOST", "dpg-ctrbvt5svqrc73d4o990-a"), // Render 提供的主機
-      port: env.int("DATABASE_PORT", 5432), // 通常是 5432
-      database: env("DATABASE_NAME", "website_data"), // 數據庫名稱
-      user: env("DATABASE_USERNAME", "website_data_user"), // 數據庫用戶
-      password: env("DATABASE_PASSWORD", "IcBBTAB7loB1JEhP5rBgst2qgJKyBZm3"), // 數據庫密碼
-      ssl: env.bool("DATABASE_SSL", true), // 是否啟用 SSL
+      host: env("DATABASE_HOST", "dpg-ctrbvt5svqrc73d4o990-a"),
+      port: env.int("DATABASE_PORT", 5432),
+      database: env("DATABASE_NAME", "website_data"),
+      user: env("DATABASE_USERNAME", "website_data_user"),
+      password: env("DATABASE_PASSWORD", "IcBBTAB7loB1JEhP5rBgst2qgJKyBZm3"),
+      ssl: { rejectUnauthorized: false }, // 開啟 SSL 連接並允許自簽名證書
     },
   },
 });

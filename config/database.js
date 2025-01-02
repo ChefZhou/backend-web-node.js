@@ -1,14 +1,90 @@
+// const path = require("path");
+
+// module.exports = ({ env }) => {
+//   const client = env("DATABASE_CLIENT", "sqlite");
+
+//   const connections = {
+//     mysql: {
+//       connection: {
+//         host: env("DATABASE_HOST", "localhost"),
+//         port: env.int("DATABASE_PORT", 3306),
+//         database: env("DATABASE_NAME", "strapi"),
+//         user: env("DATABASE_USERNAME", "strapi"),
+//         password: env("DATABASE_PASSWORD", "strapi"),
+//         ssl: env.bool("DATABASE_SSL", false) && {
+//           key: env("DATABASE_SSL_KEY", undefined),
+//           cert: env("DATABASE_SSL_CERT", undefined),
+//           ca: env("DATABASE_SSL_CA", undefined),
+//           capath: env("DATABASE_SSL_CAPATH", undefined),
+//           cipher: env("DATABASE_SSL_CIPHER", undefined),
+//           rejectUnauthorized: env.bool(
+//             "DATABASE_SSL_REJECT_UNAUTHORIZED",
+//             true
+//           ),
+//         },
+//       },
+//       pool: {
+//         min: env.int("DATABASE_POOL_MIN", 2),
+//         max: env.int("DATABASE_POOL_MAX", 10),
+//       },
+//     },
+//     postgres: {
+//       connection: {
+//         connectionString: env("DATABASE_URL"),
+//         host: env("DATABASE_HOST", "localhost"),
+//         port: env.int("DATABASE_PORT", 5432),
+//         database: env("DATABASE_NAME", "strapi"),
+//         user: env("DATABASE_USERNAME", "strapi"),
+//         password: env("DATABASE_PASSWORD", "strapi"),
+//         ssl: env.bool("DATABASE_SSL", false) && {
+//           key: env("DATABASE_SSL_KEY", undefined),
+//           cert: env("DATABASE_SSL_CERT", undefined),
+//           ca: env("DATABASE_SSL_CA", undefined),
+//           capath: env("DATABASE_SSL_CAPATH", undefined),
+//           cipher: env("DATABASE_SSL_CIPHER", undefined),
+//           rejectUnauthorized: env.bool(
+//             "DATABASE_SSL_REJECT_UNAUTHORIZED",
+//             true
+//           ),
+//         },
+//         schema: env("DATABASE_SCHEMA", "public"),
+//       },
+//       pool: {
+//         min: env.int("DATABASE_POOL_MIN", 2),
+//         max: env.int("DATABASE_POOL_MAX", 10),
+//       },
+//     },
+//     sqlite: {
+//       connection: {
+//         filename: path.join(
+//           __dirname,
+//           "..",
+//           env("DATABASE_FILENAME", ".tmp/data.db")
+//         ),
+//       },
+//       useNullAsDefault: true,
+//     },
+//   };
+
+//   return {
+//     connection: {
+//       client,
+//       ...connections[client],
+//       acquireConnectionTimeout: env.int("DATABASE_CONNECTION_TIMEOUT", 60000),
+//     },
+//   };
+// };
+
 module.exports = ({ env }) => ({
   connection: {
     client: "postgres",
     connection: {
-      host: env("DATABASE_HOST", "127.0.0.1"),
-      port: env.int("DATABASE_PORT", 5432),
-      database: env("DATABASE_NAME", "strapi"),
-      user: env("DATABASE_USERNAME", "strapi"),
-      password: env("DATABASE_PASSWORD", "password"),
-      ssl: env.bool("DATABASE_SSL", false),
+      host: env("DATABASE_HOST", "your-database-host"), // Render 提供的主機
+      port: env.int("DATABASE_PORT", 5432), // 通常是 5432
+      database: env("DATABASE_NAME", "your-database-name"), // 數據庫名稱
+      user: env("DATABASE_USERNAME", "your-username"), // 數據庫用戶
+      password: env("DATABASE_PASSWORD", "your-password"), // 數據庫密碼
+      ssl: env.bool("DATABASE_SSL", true), // 是否啟用 SSL
     },
-    debug: false,
   },
 });

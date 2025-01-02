@@ -1,0 +1,54 @@
+{
+  "kind": "collectionType",
+  "collectionName": "articles",
+  "info": {
+    "singularName": "article",
+    "pluralName": "articles",
+    "displayName": "Article",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "text",
+      "required": true,
+      "maxLength": 255,
+      "unique": true
+    },
+    "summary": {
+      "type": "text",
+      "required": true,
+      "maxLength": 255
+    },
+    "category": {
+      "type": "enumeration",
+      "enum": [
+        "food",
+        "trip",
+        "tech",
+        "others"
+      ],
+      "required": true
+    },
+    "thumbnail": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "slug": {
+      "type": "uid",
+      "required": true
+    },
+    "content": {
+      "type": "text",
+      "required": true,
+      "maxLength": 2000
+    }
+  }
+}

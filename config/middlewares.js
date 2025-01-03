@@ -14,7 +14,10 @@ module.exports = [
       },
       cors: {
         enabled: true,
-        origin: ["http://localhost:3000"],
+        origin: [
+          "http://localhost:3000",
+          "https://front-web-profolio.vercel.app/",
+        ],
       },
     },
   },

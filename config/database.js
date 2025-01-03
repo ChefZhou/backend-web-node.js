@@ -10,11 +10,15 @@ module.exports = ({ env }) => ({
       database: env("DATABASE_NAME", "website_data"),
       user: env("DATABASE_USERNAME", "website_data_user"),
       password: env("DATABASE_PASSWORD", "IcBBTAB7loB1JEhP5rBgst2qgJKyBZm3"),
-      ssl: env.bool("DATABASE_SSL", true)
-        ? {
-            rejectUnauthorized: false,
-          }
-        : false,
+      ssl: {
+        rejectUnauthorized: false,
+        ca: env("DATABASE_CA", undefined),
+      },
+      pool: {
+        min: 0,
+        max: 5,
+      },
     },
+    debug: false,
   },
 });

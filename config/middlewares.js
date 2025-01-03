@@ -16,17 +16,19 @@ module.exports = [
           upgradeInsecureRequests: null,
         },
       },
-      cors: {
-        enabled: true,
-        origin: [
-          "http://localhost:3000", // 本地開發環境
-          "https://profolio-frontweb-next-js.vercel.app", // 正式網域
-          "https://profolio-frontweb-next-3e4zhhhg1-zhou-dennys-projects.vercel.app", // 部署預覽網址
-        ],
-      },
     },
   },
-  // "strapi::cors", // 移除這行，因為已經在 strapi::security 中配置了 CORS
+  {
+    name: "strapi::cors",
+    config: {
+      enabled: true,
+      origin: [
+        "http://localhost:3000", // 本地開發環境
+        "https://profolio-frontweb-next-js.vercel.app", // 正式網域
+        "https://profolio-frontweb-next-3e4zhhhg1-zhou-dennys-projects.vercel.app", // 部署預覽網址
+      ],
+    },
+  },
   "strapi::poweredBy",
   "strapi::logger",
   "strapi::query",

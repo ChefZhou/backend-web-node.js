@@ -6,6 +6,6 @@ module.exports = ({ env }) => ({
   host: env("HOST", "0.0.0.0"),
   port: env.int("PORT", 1337),
   app: {
-    keys: [key1, key2], // 使用隨機生成的密鑰
+    keys: env.array("APP_KEYS"),
   },
 });

@@ -11,8 +11,8 @@ module.exports = [
             "https://backend-web-node-js.onrender.com",
             "https:",
           ], // 允許 API 的連接來源
-          "img-src": ["'self'", "data:", "blob:", "https:"], // 改為 https
-          "media-src": ["'self'", "data:", "blob:", "https:"], // 改為 https
+          "img-src": ["'self'", "data:", "blob:", "https:"],
+          "media-src": ["'self'", "data:", "blob:", "https:"],
           upgradeInsecureRequests: null,
         },
       },
@@ -26,7 +26,7 @@ module.exports = [
       },
     },
   },
-  "strapi::cors",
+  // "strapi::cors", // 移除這行，因為已經在 strapi::security 中配置了 CORS
   "strapi::poweredBy",
   "strapi::logger",
   "strapi::query",

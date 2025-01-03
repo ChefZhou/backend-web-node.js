@@ -6,9 +6,13 @@ module.exports = [
       contentSecurityPolicy: {
         useDefaults: true,
         directives: {
-          "connect-src": ["'self'", "http:"],
-          "img-src": ["'self'", "data:", "blob:", "http:"],
-          "media-src": ["'self'", "data:", "blob:", "http:"],
+          "connect-src": [
+            "'self'",
+            "https://backend-web-node-js.onrender.com",
+            "https:",
+          ], // 允許 API 的連接來源
+          "img-src": ["'self'", "data:", "blob:", "https:"], // 改為 https
+          "media-src": ["'self'", "data:", "blob:", "https:"], // 改為 https
           upgradeInsecureRequests: null,
         },
       },
